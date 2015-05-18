@@ -15,6 +15,8 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.samuk.opendata.objectModels.ParkMeter;
 
@@ -25,6 +27,8 @@ import com.samuk.opendata.objectModels.ParkMeter;
  */
 public class OpendataSource{
 
+	Logger logger = LoggerFactory.getLogger(OpendataSource.class);
+	
 	HttpURLConnection conn;
 	URL url;
 	File file;
@@ -59,7 +63,7 @@ public class OpendataSource{
 	 */
 	private List<ParkMeter> createParkMeterList(List<Row> data){
 		List<ParkMeter> parkmeterList = new ArrayList<ParkMeter>();
-		System.out.println("Transfer list");
+		logger.info("Transfer to ParkMeter list");
 		for(Row row:data){
 			if(row.getCell(0).getCellType() == 0){
 				ParkMeter pm = new ParkMeter();
@@ -93,7 +97,7 @@ public class OpendataSource{
         Workbook wb = new HSSFWorkbook(fis);
         Sheet sheet1 = wb.cloneSheet(0);
 
-        System.out.println("Extract excel");
+        logger.info("Extract excel");
         for(Row row : sheet1){
         	rowList.add(row);
         }
