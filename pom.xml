@@ -8,7 +8,7 @@
   <modules>
     <module>external</module>
     <module>opendata-rest</module>
-    <module>common</module>
+    <module>opendata-web</module>
   </modules>
 
 

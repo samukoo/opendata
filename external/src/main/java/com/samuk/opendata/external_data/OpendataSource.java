@@ -21,7 +21,7 @@ import org.slf4j.LoggerFactory;
 import com.samuk.opendata.objectModels.ParkMeter;
 
 /**
- * Class methods 
+ * Class methods deals data from URL and transfer data from excel to List's
  * @author kotissa
  *
  */

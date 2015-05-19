@@ -8,7 +8,7 @@
         
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
-            <param-value>com.samuk.rest</param-value>
+            <param-value>com.samuk.rest.v1</param-value>
         </init-param>
         
         <init-param>
@@ -20,6 +20,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Jersey Web Application</servlet-name>
-        <url-pattern>/webapi/*</url-pattern>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
 </web-app>

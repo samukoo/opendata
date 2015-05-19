@@ -2,7 +2,7 @@ package integrationTests;
 
 import org.junit.Test;
 
-import com.samuk.opendata.database.DB;
+import com.samuk.opendata.DB.query.Util;
 import com.samuk.opendata.external_data.OpendataSource;
 import com.samuk.opendata.objectModels.ParkMeter;
 
@@ -11,11 +11,11 @@ public class writeDataIT {
 	@Test
 	public void writeDataToDB() throws Exception{
 		
-		DB db = new DB();
+		Util util = new Util();
 		OpendataSource ods = new OpendataSource();
 		
 		for(ParkMeter pm : ods.getParkMeterList()){
-			db.insertData(pm);
+			util.insertData(pm);
 		}
 		System.out.println("SQL insert done");
 		

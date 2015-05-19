@@ -8,6 +8,8 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.samuk.opendata.DB.query.DB;
+import com.samuk.opendata.DB.query.Util;
 import com.samuk.opendata.objectModels.ParkMeter;
 
 public class DBTest {
@@ -15,7 +17,7 @@ public class DBTest {
 	DB db = new DB();
 	Connection conn = null;
 	
-//	@Test
+	@Test
 	public void getAllTables()
 				 throws SQLException {
 		
@@ -24,7 +26,7 @@ public class DBTest {
 		}
 		
 		List<ParkMeter> result = null;
-		result = db.getTables();
+		result = new DB().getParkMeters();
 		
 			assertNotNull(result);
 			
@@ -44,7 +46,7 @@ public class DBTest {
 		data.setOsoite("foobar");
 		data.setZone(543);
 		
-		db.insertData(data);
+		new Util().insertData(data);
 		
 		
 	}
