@@ -1,6 +1,9 @@
 package com.samuk;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -8,7 +11,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import com.samuk.opendata.DB.query.DB;
+import com.samuk.opendata.objectModels.ParkMeter;
 
 /**
  * Servlet implementation class TestServlet
@@ -16,11 +21,9 @@ import javax.servlet.http.HttpSession;
 public class TestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	private String jeejee;
 	
 	
 	public void init(ServletConfig servletConfig){
-		this.jeejee = servletConfig.getInitParameter("jeejee");
 	}
 	
 	
@@ -36,11 +39,35 @@ public class TestServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     @Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
     	RequestDispatcher r = request.getRequestDispatcher("pages/boot2.jsp");
     	request.setAttribute("teksti","teksti servletiltä");
-    	r.forward(request, response);
+    	
+    	
+    	List<String> test = new ArrayList<String>();
+    	test.add("lkjsadlkajda");
+    	test.add("kjvxmvnx,mvnxcmvn");
+    	
+    	DB db = new DB();
+    	
+    	request.setAttribute("string", test);
+    	
+    	request.setAttribute("menu", new PropertyLoader().getProp());
+    	
+    	
+    	try {
+			
+    		List<ParkMeter> lista = db.getParkMeters();
+    		
+			request.setAttribute("mittarit", lista);
+			
+			r.forward(request, response);
+			
+    	} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	
     	
     	
     	

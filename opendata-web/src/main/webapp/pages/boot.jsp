@@ -20,7 +20,46 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Hello, <c:out value="${teksti}"></c:out> !</h1>
+    <p>Hellosfsfdfsfds, <c:out value="${teksti}"></c:out> !</p>
+    
+    <table>
+    
+	    <c:forEach items="${string}" var="item">
+	    	<tr>
+	    		<td><c:out value="${item}"></c:out></td>
+	    	</tr>
+	    </c:forEach>
+    
+    
+    </table>
+    
+    <table>
+    
+	    <c:forEach items="${mittarit}" var="mittari">
+	    	<tr>
+	    		<td><c:out value="${mittari.osoite}"></c:out></td>
+	    	</tr>
+	    </c:forEach>
+    
+    
+    </table>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

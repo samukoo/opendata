@@ -1,32 +1,30 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_5.dtd"
- >
-
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   
   <servlet>
-  	<servlet-name>TestServlet</servlet-name>
-  	<display-name>TestServlet</display-name>
-  	<description></description>
-  	<servlet-class>com.samuk.TestServlet</servlet-class>
-  
-  	<init-param>
-  		<param-name>jeejee</param-name>
-  		<param-value>parametriValue</param-value>
-  	</init-param>
-  
+    <servlet-name>bootStrap</servlet-name>
+    <servlet-class>com.samuk.TestServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
-  	<servlet-name>TestServlet</servlet-name>
-  	<url-pattern>/pages</url-pattern>
+    <servlet-name>bootStrap</servlet-name>
+    <url-pattern>/boot</url-pattern>
   </servlet-mapping>
-  
+
+  <servlet>
+    <servlet-name>main2</servlet-name>
+    <servlet-class>com.samuk.servlets.Main2</servlet-class>
+  </servlet>
   <servlet-mapping>
-  	<servlet-name>TestServlet</servlet-name>
-  	<url-pattern>/boot</url-pattern>
+    <servlet-name>main2</servlet-name>
+    <url-pattern>/main2</url-pattern>
   </servlet-mapping>
-  
+
+
+
+
+
+
+
+
+
 </web-app>

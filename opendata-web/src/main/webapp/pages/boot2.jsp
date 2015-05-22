@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<%@taglib prefix="c"
-		  uri="http://java.sun.com/jstl/core"  %>
+	<%@taglib prefix="c"
+		  	  uri="http://java.sun.com/jsp/jstl/core"  %>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,13 +54,28 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
+                
+                <c:forEach items="${menu }" var="item">
+                
+					<li><a href=<c:out value="${item.osoite }"></c:out> > <c:out value="${item.nimi }"></c:out> </a></li>               
+                
+                </c:forEach>
+                
+                
+                
+                
+                
+                <!--  li><a href="#">Action</a></li>
                 <li><a href="#">Another action</a></li>
                 <li><a href="#">Something else here</a></li>
                 <li class="divider"></li>
                 <li class="dropdown-header">Nav header</li>
                 <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
+                <li><a href="#">One more separated link</a></li-->
+              
+              
+              
+              
               </ul>
             </li>
           </ul>
@@ -126,43 +141,44 @@
           <table class="table">
             <thead>
               <tr>
-                <th>#</th>
-                <th>First Name</th>
+                <th>Tunniste</th>
+                <th>Osoite</th>
                 <th>Last Name</th>
                 <th>Username</th>
               </tr>
             </thead>
             <tbody>
+              
+            <c:forEach items="${mittarit }" var="mittari">  
               <tr>
-                <td>1</td>
-                <td>Mark</td>
+                <td><c:out value="${mittari.tunniste}"></c:out> </td>
+                <td><c:out value="${mittari.osoite}"></c:out></td>
                 <td>Otto</td>
                 <td>@mdo</td>
               </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
+			</c:forEach>
+
             </tbody>
           </table>
         </div>
         <div class="col-md-6">
           <table class="table table-striped">
             <thead>
-              <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-              </tr>
+              
+              
+              
+              <c:forEach items="${mittarit }" var="mittari" >
+	              <tr>
+	                <th><c:out value="${mittari.tunniste }"></c:out> </th>
+	                <th><c:out value="${mittari.osoite }"></c:out> </th>
+	                <th>Last Name</th>
+	                <th>Username</th>
+	              </tr>
+              </c:forEach>
+              
+              
+              
+              
             </thead>
             <tbody>
               <tr>
