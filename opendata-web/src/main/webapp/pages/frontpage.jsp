@@ -7,12 +7,8 @@
 <body>
 <h2>
 	
-	<c:out value="${teksti}"/> 
+	moi
 	
-	<%= request.getAttribute("teksti") %>
-	
-	
-	<c:out value="${1<2 }"/> 
 </h2>
 </body>
 </html>

@@ -39,5 +39,24 @@ public class DB{
 		return pmList;
 	}
 
+	public ParkMeter getParkMeter(int tunniste) throws SQLException{
+		conn = ConnectionFactory.getConnection();
+		String sql_string = "SELECT * FROM mittari_data where Tunniste = ?";
+		PreparedStatement pstmt = (PreparedStatement) conn.prepareStatement(sql_string);
+		pstmt.setInt(1, tunniste);
+		
+		ResultSet rs = pstmt.executeQuery();
+		ParkMeter pm = new ParkMeter();
+		
+		while(rs.next()){
+			
+			pm.setTunniste(rs.getInt("Tunniste"));
+			pm.setOsoite(rs.getString("Osoite"));
+				
+		}
+		conn.close();
+		return pm;
+	}
+
 	
 }

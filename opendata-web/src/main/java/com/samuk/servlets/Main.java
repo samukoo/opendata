@@ -1,6 +1,8 @@
 package com.samuk.servlets;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Properties;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,9 +12,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.samuk.PropertyLoader;
+import com.samuk.opendata.DB.query.DB;
+
 @WebServlet(
 		description = "servlet for main page", 
-		urlPatterns = { "/" }, 
+		urlPatterns = { "/main" }, 
 		initParams = { 
 				@WebInitParam(name = "one", value = "1")
 		})
@@ -27,8 +32,17 @@ public class Main extends HttpServlet {
 
 		RequestDispatcher r = request.getRequestDispatcher("/pages/main.jsp");
 		
-		request.setAttribute("title", "this is title from servlet!");
-		request.setAttribute("topic", "this is topic");
+		PropertyLoader pl = new PropertyLoader();
+		
+		request.setAttribute("prop", pl.getProperties("page_text.properties"));
+		request.setAttribute("menuitems", pl.getPropAsList());
+		
+		try {
+			request.setAttribute("mittarit", new DB().getParkMeters());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		
 		r.forward(request, response);
 	}

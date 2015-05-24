@@ -16,7 +16,7 @@ public class PropertyLoaderTest {
 	@Test
 	public void test() throws IOException{
 		
-		assertNotNull(pl.getProp());
+		assertNotNull(pl.getPropAsList());
 		
 		
 		

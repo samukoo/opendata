@@ -51,6 +51,15 @@ public class DBTest {
 		
 	}
 	
+	@Test
+	public void getMeterTest() throws SQLException{
+		ParkMeter res = new ParkMeter();
+		res = db.getParkMeter(12);
+		
+		assertNotNull(res);
+		System.out.println(res.getOsoite());
+		
+	}
 	
 	
 }

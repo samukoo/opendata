@@ -53,7 +53,7 @@ public class TestServlet extends HttpServlet {
     	
     	request.setAttribute("string", test);
     	
-    	request.setAttribute("menu", new PropertyLoader().getProp());
+    	request.setAttribute("menu", new PropertyLoader().getPropAsList());
     	
     	
     	try {

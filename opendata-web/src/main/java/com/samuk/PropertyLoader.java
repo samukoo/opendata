@@ -12,7 +12,7 @@ public class PropertyLoader {
 	Properties prop = new Properties();
 	InputStream input = null;
 	
-	public List<MenuObject> getProp() throws IOException{
+	public List<MenuObject> getPropAsList() throws IOException{
 		
 		List<MenuObject> menuList = new ArrayList<MenuObject>();
 		
@@ -37,15 +37,22 @@ public class PropertyLoader {
 			
 			menuList.add(mo);
 		}
-		
-		
-		
-		
 		return menuList;
-		
-		
 	}
 	
+	public Properties getProperties(String file){
+	
+		input = getClass().getClassLoader().getResourceAsStream(file);
+		Properties prop = new Properties();
+		try {
+			prop.load(input);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return prop;
+		
+	}
 	
 	
 }
