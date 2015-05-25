@@ -12,8 +12,8 @@ public class ParkMeter {
 	String osoite = null;
 	int zone;
 	String maksullisuus = "voivittu";
-	String stopTime = null;
-	String Muu_maksutapa = "";
+	String stoptime = null;
+	String muumaksutapa = "";
 	Double paikka_x;
 	Double paikka_y;
 	
@@ -55,19 +55,19 @@ public class ParkMeter {
 	}
 
 	public String getStopTime() {
-		return stopTime;
+		return stoptime;
 	}
 
 	public void setStopTime(String stopTime) {
-		this.stopTime = stopTime;
+		this.stoptime = stopTime;
 	}
 
 	public String getMuu_maksutapa() {
-		return Muu_maksutapa;
+		return muumaksutapa;
 	}
 
-	public void setMuu_maksutapa(String muu_maksutapa) {
-		Muu_maksutapa = muu_maksutapa;
+	public void setMuumaksutapa(String muumaksutapa) {
+		this.muumaksutapa = muumaksutapa;
 	}
 
 	public Double getPaikka_x() {

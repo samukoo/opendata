@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Theme Template for Bootstrap</title>
+    <title>${prop['header.menu.brand']}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -44,16 +44,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Bootstrap <c:out value="${teksti }"></c:out> </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-          	<c:set value="${prop }" var="text"></c:set>
-            <li class="active"><a href="#"><c:out value="${text['main.menu.home']}"></c:out> </a></li>
-            <li><a href="#about"><c:out value="${text['main.menu.about']}"></c:out></a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="active"><a href="${prop['header.menu.home.link']}">${prop['header.menu.home']}</a></li>
+            <li><a href="${prop['header.menu.about.link']}">${prop['header.menu.about']}</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${prop['header.menu.dropdown'] } <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 
                 <c:forEach items="${menuitems }" var="menuitem">
@@ -73,11 +70,15 @@
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1><c:out value="${text['main.topic'] }"></c:out></h1>
-        <p><c:out value="${text['main.topic.description'] }"></c:out></p>
+        <h1><c:out value="${prop['header.menu.brand']}"></c:out></h1>
+        <p><c:out value="${prop['main.topic.description'] }"></c:out></p>
       </div>
 
-
+		<form method="POST" action="main">
+		Hae:<input name="search"/>
+		<input type="Submit" value="HAE OSOITETTA"/>
+		      
+      
       
 
 
@@ -91,8 +92,11 @@
               <tr>
                 <th>Tunniste</th>
                 <th>Osoite</th>
-                <th>Last Name</th>
-                <th>Username</th>
+                <th>Zone</th>
+                <th>Maksullisuus</th>
+                <th>Stop time</th>
+                <th>Muu maksutapa</th>
+                <th>Tykkäykset</th>
               </tr>
             </thead>
             <tbody>
@@ -100,9 +104,9 @@
             <c:forEach items="${mittarit }" var="mittari">  
               <tr>
                 <td><a href="parkmeter?meter=${mittari.tunniste}">${mittari.tunniste}</a></td>
-                <td><c:out value="${mittari.osoite}"></c:out></td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <td><a href="parkmeter?meter=${mittari.tunniste}">${mittari.osoite}</a></td>
+                <td>${mittari.zone}</td>
+                <td>${mittari.maksullisuus}</td>
               </tr>
 			</c:forEach>
 

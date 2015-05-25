@@ -35,20 +35,17 @@ public class Parkmeter extends HttpServlet {
 		RequestDispatcher r = request.getRequestDispatcher("/pages/parkmeter.jsp");
 		
 		
-		PageContext ctx = context.getPageContext(new Integer(request.getParameter("meter")));
+		PageContext ctx = context.getParkmeterPageContext(new Integer(request.getParameter("meter")));
 		
-		request.setAttribute("prop", ctx.prop);
-		request.setAttribute("parkmeter", ctx.parkMeter);
+		request.setAttribute("prop", ctx.getProp());
+		request.setAttribute("parkmeter", ctx.getParkMeter());
+		request.setAttribute("likes", ctx.getLikes());
 		
 		r.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		
 	}
-/*
- * System.out.println(request.getContextPath());
-		System.out.println(request.getRequestURI().substring(request.getContextPath().length()));
-		System.out.println(request.getParameter("meter"));
- */
 }
