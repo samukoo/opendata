@@ -30,7 +30,7 @@ public class PageContext implements Serializable{
 	
 	public PageContext getParkmeterPageContext(int att) {
 		/*
-		 * Do something with request (attributes etc)
+		 * Do something with request (attributes etc.)
 		 */
 		
 		try {
